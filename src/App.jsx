@@ -151,7 +151,6 @@ export default function App() {
           onClick={(e) => {
             e.preventDefault();
             setSubmittedData(data);
-            setIsSubmitted(true);
             clearData();
             handleActive();
           }}
