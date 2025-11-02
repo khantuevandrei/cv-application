@@ -54,6 +54,10 @@ export default function App() {
     setSubmittedData(data);
   }
 
+  function clearSubmittedData() {
+    setSubmittedData({});
+  }
+
   return (
     <>
       <form>
@@ -162,6 +166,7 @@ export default function App() {
           onClick={(e) => {
             e.preventDefault();
             setData(submittedData);
+            clearSubmittedData();
             handleActive();
           }}
           disabled={!isActive}
