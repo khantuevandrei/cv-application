@@ -7,8 +7,7 @@ import { useState } from "react";
 export default function App() {
   const [isActive, setIsActive] = useState(false);
 
-  function handleActive(e) {
-    e.preventDefault();
+  function handleActive() {
     isActive ? setIsActive(false) : setIsActive(true);
   }
 
@@ -27,9 +26,32 @@ export default function App() {
     yearEnd: "",
   });
 
+  function clearData() {
+    setData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      schoolName: "",
+      studyTitle: "",
+      studyDate: "",
+      companyName: "",
+      positionTitle: "",
+      responsibilities: "",
+      yearStart: "",
+      yearEnd: "",
+    });
+  }
+
   function handleInputChange(e) {
     const { id, value } = e.target;
     setData((data) => ({ ...data, [id]: value }));
+  }
+
+  const [submittedData, setSubmittedData] = useState({});
+
+  function handleSubmit() {
+    setSubmittedData(data);
   }
 
   return (
@@ -125,14 +147,29 @@ export default function App() {
             value={data.yearEnd}
           />
         </Fieldset>
-        <button onClick={handleActive} disabled={isActive}>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            handleSubmit();
+            clearData();
+            handleActive();
+          }}
+          disabled={isActive}
+        >
           Submit
         </button>
-        <button onClick={handleActive} disabled={!isActive}>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            setData(submittedData);
+            handleActive();
+          }}
+          disabled={!isActive}
+        >
           Edit
         </button>
       </form>
-      <Resume submi />
+      <Resume {...submittedData} />
     </>
   );
 }
