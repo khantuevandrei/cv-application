@@ -50,10 +50,6 @@ export default function App() {
 
   const [submittedData, setSubmittedData] = useState({});
 
-  function handleSubmit() {
-    setSubmittedData(data);
-  }
-
   function clearSubmittedData() {
     setSubmittedData({});
   }
@@ -154,7 +150,8 @@ export default function App() {
         <button
           onClick={(e) => {
             e.preventDefault();
-            handleSubmit();
+            setSubmittedData(data);
+            setIsSubmitted(true);
             clearData();
             handleActive();
           }}
@@ -174,7 +171,8 @@ export default function App() {
           Edit
         </button>
       </form>
-      <Resume {...submittedData} />
+
+      {isActive && <Resume {...submittedData} />}
     </>
   );
 }
