@@ -1,3 +1,3 @@
 # React + Vite
 
-Users can input their information and generate a CV/resume
+Generate CV with user's input
