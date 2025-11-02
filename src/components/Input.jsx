@@ -1,8 +1,10 @@
-export default function Input({id, labelName, type, value, onChange}) {
+import "../styles/Input.css";
+
+export default function Input({ id, labelName, type, value, onChange }) {
   return (
     <>
       <label htmlFor={id}>{labelName}</label>
-      <input id={id} type={type} value={value} onChange={onChange}/>
+      <input id={id} type={type} value={value} onChange={onChange} />
     </>
-  )
+  );
 }

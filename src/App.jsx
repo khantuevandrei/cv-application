@@ -1,10 +1,11 @@
-import './App.css'
-import Input from './components/Input'
+import "./App.css";
+import Input from "./components/Input";
+import General from "./components/General";
 
 export default function App() {
   return (
     <>
-      <Input id='firstName' labelName='First name: ' type='text' value='' />
+      <General />
     </>
-  )
+  );
 }
